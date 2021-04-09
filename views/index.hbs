@@ -1,0 +1,22 @@
+<h2>Main Page</h2> 
+{{#if instagram.length}}
+    <ul>
+        {{#each instagram }}
+            <li class="insta">
+                <label>
+                    {{#if completed}}
+                    <p>{{Age}}</p>
+                    {{else}}
+                    <span>{{title}}  </span>
+                    {{/if}}
+                    
+                    <button class=" btn btn-small"></button>
+                </label>
+            </li>    
+        {{/each}}
+    </ul>
+{{else}}
+
+<p> No News</p>
+
+{{/if}}
