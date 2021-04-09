@@ -3,6 +3,12 @@ const Instagram = require('../models/instagramModel')
 const router = Router();
 const mongoose = require("mongoose")
 
+var bodyParser = require('body-parser');
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded());
+// // in latest body-parser use like below.
+router.use(bodyParser.urlencoded({ extended: true }));
+
 router.get('/' ,  async(req,res) => {
     const instagram  = await Instagram.find({})
     res.render('index' , {
@@ -25,14 +31,17 @@ router.get('/register' , (req,res)=> {
 })
 
 router.post('/register' , async (req , res) => {
-    const instagram = new ({
-        title: req.body.title
-    })
-    console.log("sended")
+    console.log(req.body);
 
-    await  instagram.save()
-    console.log("seved")
-    res.redirect('/')
+    // const instagram = new ({
+    //     title: req.body.title
+    // })
+    // console.log("sended")
+
+    // await  instagram.save()
+    // console.log("seved")
+    // res.redirect('/')
+
 })
 
 module.exports = router;
